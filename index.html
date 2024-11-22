@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普信男测试</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        select:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+            color: #333;
+        }
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>普信男测试</h1>
+        <form id="testForm">
+            <div class="form-group">
+                <label for="salary">工资：</label>
+                <select id="salary" name="salary">
+                    <option value="100">低于5000元</option>
+                    <option value="60">5000-10000元</option>
+                    <option value="30">10000-20000元</option>
+                    <option value="10">20000元以上</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="deposit">存款：</label>
+                <select id="deposit" name="deposit">
+                    <option value="100">没有存款</option>
+                    <option value="60">少于10万</option>
+                    <option value="30">10-50万</option>
+                    <option value="10">50万以上</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="height">身高：</label>
+                <select id="height" name="height">
+                    <option value="100">160cm以下</option>
+                    <option value="60">160-170cm</option>
+                    <option value="30">170-180cm</option>
+                    <option value="10">180cm以上</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="attractiveness">颜值：</label>
+                <select id="attractiveness" name="attractiveness">
+                    <option value="100">其貌不扬</option>
+                    <option value="60">颜值普通</option>
+                    <option value="30">有点帅</option>
+                    <option value="10">颜值逆天</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="opinionOnWomen">对女性外表：</label>
+                <select id="opinionOnWomen" name="opinionOnWomen">
+                    <option value="100">经常评论觉得自己有“鉴赏力”</option>
+                    <option value="60">很少发表意见认为不应干涉他人</option>
+                    <option value="30">有时会对身边女性的外表或行为发表看法</option>
+                    <option value="10">完全不发表评论尊重女性的独立性</option>
+                </select>
+            </div>
+            <button type="button" onclick="calculateScore()">计算普信男指数</button>
+        </form>
+        <div class="result" id="result"></div>
+        <div class="disclaimer">公众号：老Y工作室，网页仅供娱乐，请勿当真或对号入座</div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const salary = parseInt(document.getElementById('salary').value);
+            const deposit = parseInt(document.getElementById('deposit').value);
+            const height = parseInt(document.getElementById('height').value);
+            const attractiveness = parseInt(document.getElementById('attractiveness').value);
+            const opinionOnWomen = parseInt(document.getElementById('opinionOnWomen').value);
+
+            // Calculate the weighted average score to ensure the total is 100
+            const totalScore = (salary + deposit + height + attractiveness + opinionOnWomen) / 5;
+
+            document.getElementById('result').innerText = `普信男指数是：${totalScore.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
+
+
+
